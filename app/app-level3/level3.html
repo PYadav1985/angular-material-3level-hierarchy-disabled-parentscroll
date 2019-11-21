@@ -1,0 +1,32 @@
+<div [@detailExpand] class="example-container mat-elevation-z2" style="padding-left:50px">
+		<mat-table #table3 [dataSource]="dataSource3" matSort> <!--style="max-height:200px;overflow-y:scroll" -->
+
+			<!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+			<!-- Position Column -->
+			<ng-container matColumnDef="position">
+				<mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+			</ng-container>
+
+			<!-- Name Column -->
+			<ng-container matColumnDef="name">
+				<mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+			</ng-container>
+
+			<!-- Weight Column -->
+			<ng-container matColumnDef="weight">
+				<mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+			</ng-container>
+
+			<mat-header-row *matHeaderRowDef="displayedColumns3;sticky: true" class="level-3-header"></mat-header-row>
+			<mat-row *matRowDef="let row; columns: displayedColumns3;" class="element-row row-sticky"
+      (mouseover)="disableScroll(row);" 
+      (mouseleave)="enableScroll(row);"> </mat-row>
+		</mat-table>
+		<!-- <mat-paginator #pager3 [length]="dataSource3.data.length" [pageSize]="3" [pageSizeOptions]="[3, 6]">
+		</mat-paginator> -->
+	</div>
